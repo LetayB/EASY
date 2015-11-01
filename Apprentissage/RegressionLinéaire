@@ -1,0 +1,106 @@
+Modèles à régression linéaire.
+
+On dispose de n couples(xi,uyi)  avec i = 1,...,n réalisations indépendantes de deux variables aléatoires X et Y.
+
+But : établir un lien entre un variable dépendante Y(variable à expliquer) et une variable indépendante X(variable explicative) pour pouvoir ensuite faire des prévisions sur Y lorsque X est mesurée.
+
+Régression : On parle de regression lorsque notre modèle est une fonction avec des valeeurs réelles
+
+Y = aX + b + € 
+
+
+Notion de corélation : Existe t'il une relation entre les deux variables aléatoires X et Y.	
+
+coefficient de corrélation linéaire :
+
+La corrélation est un coefficient sans unité : c'est la version standardisée de la covariance
+Le coefficient de corrélation de Pearson p mesure le degré d'association linéaire entre X et Y : 
+
+p = Cov(X,Y)/(var(X)var(Y))^1/2
+-1 < p < 1
+
+p = 0 : on dit que X et Y sont non corrélées : il n'y as as d'association linéaire entre X et Y.
+P >= 0 quand X monte Y aussi
+p <= 0 quand X monte Y diminue
+
+Estimation de coefficient de corrélation.
+
+
+Régression simpe u multiple :
+Simple consiste à étudier la relation affine entre Y et un seul régresseur X
+Multiple s'intéresse aux relations entre Y et plusieurs régresseurs.
+
+Un modèle de régression linéaire simple est de la forme :
+
+Yi = Bo+BiXi + €i~avec €i ~ N(O,s²)
+
+Bo : valeur moyenne des observations Yi quand xi = 0
+Bi : la pente de la droite de régression, correspond à la variation moyenne de Y quand X augmente d'une unité.
+X est la variable indépendante
+€ est une erreur aléatoire
+
+Estimation des paramètres par la méthode des moindre-carrés
+
+On suppose qu'il existe une relation affine entre Y et X, qui dépend de deux paramètre(Bo,B1) :
+
+Yi = Bo + Bixi + €i
+€i = Yi - Bo - Bixi
+
+A partir des observations (yi,Xi) on souhait trouver des facteurs Bo,B1.
+La stratégie de smoindres carrés ordinaire(MCO).
+On considère l'erreur quadratique moyenne EQM (MSE) défine par:
+
+EQM(u)= Somme de 1 à n de (Yi -Bo - B1Xi)²
+
+Estimation des paramètres :
+
+Objectifs : on chercher les valeurs des coefficients(Bo,B1) qui minimisent la somme des carrés des erreurs aléatoires.
+
+L(Bo,B1) = Somme de 1 à n de (Yi -Bo - B1Xi)²
+
+La valeur de cette fonction L est minimun losrques les dérivées de L par rapport à Bo et Bi s'annulent. La solution obtenue en résolvant le système
+	
+	{
+		dl/Bo = 0
+		dl/B1 = 0
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
