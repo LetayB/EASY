@@ -1,0 +1,20 @@
+Code Pseudo Aléatoire
+
+a) généré facilement
+b) suffisament longue
+c) difficielement reconstituée par petit segment
+d) distribution des éléments binaire apparaise aléatoire
+
+Code pseudo aleatoire suit les regles suivantes :
+
+R = 2n
+
+0 série de 0 de longueur R
+1 série de 1 de longueur R
+1 série de 0 de longueur R-1
+0 série de 1 de longueur R-1
+2^(R-P-2) série de 0 de longueur P
+2^(R-P-2) série de 1 de longueur R
+
+
+Code cyclique 

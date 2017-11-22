@@ -1,0 +1,256 @@
+Linéaire systématique : 
+
+On retrouve le message se retrouve dans le message code en premiere position
+
+00	00000
+01	01101
+10	10111
+11	11010
+
+aa	aaccc
+12	12123
+
+C1 : XOR
+C2 : a1
+C3 : a1 + a2
+
+Matrice de géneration:
+
+G[I,	G[1,0,    <- Matrice identité
+  P]	  0,1,	  <- Matrice identité
+          1,1,	  <- Poids C1 aplliqué au collones
+          1,0,	  <- Poids C2 aplliqué au collones
+          1,1]	  <- Poids C3 aplliqué au collones
+
+Matrice de contrôle:
+
+H -> Ht = [1,1,1,0,0		Ht = [P:I]
+		   1,0,0,1,0
+		   1,1,0,0,1]
+
+Pouvoir_correcteur:
+
+Dm = 3
+dm-1 = 2 erreurs detectées au plus
+t = ent((dm-1)/2) = 1 erreur corrigé au plus
+
+Table_de_decodage:
+
+On multiplie chaque ligne de la matrice identité avec Ht
+
+[0,0,0,0,1] => [0,0,1]
+[0,0,0,1,0] => [0,1,0]
+[0,0,1,0,0] => [1,0,0]
+[0,1,0,0,0] => [1,0,1]
+[1,0,0,0,1] => [1,1,1]
+
+ceux disponibles sont donc 011 et 110
+
+[0,0,0,1,1] => [0,1,1]
+[0,0,1,1,0] => [1,1,0] On detecte donc quelques erreurs de taille 2 mais pas toutes
+
+probabilite_erreurs:
+
+(1-5)^p + 5p(1-p)^4 + 2p^2(1-p)^3
+
+
+-------------------------------------
+
+
+extention_code_correcteur:
+3r = 2^k - (k+1)
+
+caractères possibles
+
+
+-------------------------------------
+
+code_gold :
+
+longueur maximale => 2^n  - 1 , pour n = 5 => 31
+
+etages => [5,2] , forme polynomiale g(x) = x^5 + x^2 + 1
+		  [5,4,2,1] , forme polynomiale g(x) = x^5 + x^4 + x^2 + x + 1
+
+
+pour [5,2] sequences obtenues , 31 séquences
+on réalise un XOR sur la collone 5 et 2
+
+1 2 3 4 5
+
+1 1 1 1 1
+0 1 1 1 1
+0 0 1 1 1
+1 0 0 1 1
+1 1 0 0 1
+0 1 1 0 0
+1 0 1 1 0
+0 1 0 1 1
+0 0 1 0 1
+1 0 0 1 0
+0 1 0 0 1
+0 0 1 0 0
+0 0 0 1 0
+0 0 0 0 1
+1 0 0 0 0
+0 1 0 0 0
+1 0 1 0 0
+0 1 0 1 0
+1 0 1 0 1
+1 1 0 1 0
+1 1 1 0 1
+0 1 1 1 0
+1 0 1 1 1
+1 1 0 1 1
+0 1 1 0 1
+0 0 1 1 0
+0 0 0 1 1
+1 0 0 0 1
+1 1 0 0 0
+1 1 1 0 0
+1 1 1 1 0
+1 1 1 1 1
+
+1 1 1 1 1
+0 1 1 1 1
+1 0 1 1 1 
+1 1 0 1 1
+0 1 1 1 1
+
+
+un code est lineaire cyclique si et seulement si une permutation de lui meme de ses bits redonne un mot de lui meme
+
+
+0 0 0 0
+0 0 1 1
+0 1 1 0
+0 1 0 1
+1 1 0 0
+
+
+
+
+--------------------------------
+
+temps_reel:
+
+toute réponse fournie en dehors d'une fenêtre temporelle est considerée fausse, que'elle que soit sa valeur.
+
+définition d'un temps réel minimun qui sépare deux événements.
+=> temps réel SOUPLE 
+	-> contrainte de l'ordre de la seconde
+	-> tolérance d'un pourcentage de non respect de contraintes
+=> temps réel DUR
+	-> contraintes de l'ordre de la milliseconde
+	-> conséquences dramatique si non respect des contraintes.
+
+=> Interet du temps reel 
+	-> partage du processeur
+	-> execution de fonctions synchrone
+	-> contrainte de temps
+
+----------
+
+Exercice_temps_reel :
+
+1) Principes :
+
+Q1 : Dans une application multi-tâches mono-proesseur, peut on utiliser une attente active ?
+-> oui si on vérifie ne pas bloquer une tâche plus prioritaire. (la tâche de fond resteras active).
+
+Q2 : Dans une application Temps-réel, quelles(s) conditions est(sont) nécessaires(s) pour que le résultat soit considérée comme juste et valable ?
+-> toute réponse doit être fournie dans une fenêtre temporelle pour être considérée valable.
+-> application déterministe, on doit savoir quand les résultats arrivent.
+
+Q3 : Indiquer les différences entre les états Bloqué et Prêt pour une tâche dans une application gérée par un exécutif Temps-réel?
+-> Prêt => Attente de son tour par l'ordennanceur
+-> Bloqué => Attente d'une condition
+
+				 ----Actif<-----
+				 v		|	    |
+			   Bloqué	|		|
+			   	 |		v		|
+			   	 ----->Pret-----
+
+
+
+
+
+Q4 : Expliquer le principe d'implantation de l'exclusion mutuelle.
+-> Faire une schéma P et V
+
+2) Implantation_de_l_exclusion_mutuelle :
+
+On considère la structure fonctionnelle suivante où IT1 et IT2 sont implantées par des sémaphores et V est une variable partagée qui 
+doit être protégée par par exclusion mutuelle. On suppose que les tâches T1 (1ms) et T2 (500us) sont de priorité respective 6 et 4.
+
+Q1 : Définir le taux d'occupation Tx de cette application.Peut on faire une application mono-processeur ?
+
+-> T1 : C1 = 100+200, Charge = 300/100 = 30%
+-> T2 : C2 = 200, Charge = 200/500 = 40%
+-> C = C1 + C2 => 70%
+
+Q2 : 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

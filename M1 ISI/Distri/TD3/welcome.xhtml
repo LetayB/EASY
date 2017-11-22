@@ -1,0 +1,24 @@
+<?xml version='1.0'encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core">
+	<h:head>
+		<title>Number Quiz</title>
+	</h:head>
+	<h:body>
+ <h:outputText value="Have fun with Number Quizz" / ><br/><br/>
+ <h:outputFormat value="Your current score is {0} "/>
+ 	<f:param value ="#{quizBean.score}">
+ </h:outputFormat ><br/>
+ <h:outputText value="quizBean.currentProblem.sequence"/>
+ <h:form>
+ 	<h:outputText value="Your answer :" />
+ 	<h:outputText value="#{quizBean.answer}" valueChangeListener="#{quizBean.answerListerner"}/>
+ 	<h:command_Button value="Next" action="#{"/>
+
+</h:form>
+ </h:body>
+</html>
+Format XML
+Déclaration au moteur de
+l'utilisation de balises
+R

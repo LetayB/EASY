@@ -1,0 +1,135 @@
+2.2 Postier chinois orienté
+
+Une solution existe si et seuelment si le graphe G = (S,A) est fortement connexe
+Et un graphe est fortement conexxe si et seulement si pour tout couple de sommet (i,j) appartennant à S, il existe un chemin de i vers j et un chemin de j vers i.
+=> Pour otenir un graphe fortement connexe : avoir le même nombre d'entrée que de sortie sur chaque sommet, pour cela on realise une rehcreche de flux minimal EXEMPLE :
+
+		A --> B 		
+		^ \	/ |
+		|  / \v
+		D <-- C
+
+		Entree	Sortie
+A 		1		2		+1
+B		1		2		+1	
+C 		2		1		-1	
+D 		2		1		-1
+
+On rajoute un point de sortie T et un point d"entrée S, A et B sont relié A->T, B->T et S->D,S->D, tout ces nouveau arc ont un debit maximal de 1 mais les arcs deja existat on un debit maximal infini.
+Ont effectue ensuite un parcours de flux minimal de S vers T, puis l'on demultiplie sur le premier graphe les arcs sur lequels nous somme passé (+1 arc pour chaque passage).
+
+ALGO:
+
+G = (S,A)
+O(A)	si bGrapheFortementConnexe(G)
+O(A)		Inventorier les sommets desequilibrés
+O(A)		Creer un réseau de transport R tel que:
+			-S est une source unique, T une trappe unique
+			-ajouter des arcs vers T depuis tous les sommets qui on + de sorties que d'entrées avec un capacité |sortie| - |entrée|
+			-ajouter des arcs depuis S vers les sommets qui ont plus de d'entrées que de sortie
+
+			(chaque arcs ajouté à une capacité |Delta|, les autres ont une capacité infinie)
+
+			chaque arc de G est reporté dans R avecune capacité infinie et un coût égal au poids de l'arc dans G.
+O(S²A)		Calculer un flot maximal à coût minimal
+O(A)		Ajouter dans G tous les arcs de G qui apparaissent dans les chemins élémentaires cités dans le flot trouvé.
+O(A)		Calculer un circuit eulérien dans G augmenté.
+
+
+
+Probleme NP complets
+
+1 Terminologie
+
+classe P = classes de probleme polynomiaux
+classe NP = Non deterministic polynomial 
+classe NPC = NP complet = une partie de NP qui n'est pas dans P
+on as démontré que si un probleme dans NPC est polynomial, tous les autres le sont.
+
+
+2 Principe d'equivalence polynomiale
+
+pb : trouver le + petit sous emsemble de sommet qui couvre toutes les arretes de G.	
+
+équivalence polynomiale
+on suppose C(Ham) = O(S^H)
+C(VCk)
+G' = (S',A') avec S' = 12H + k ,   A' << 3A + 4 Ak, pire cas A = S²
+=> C(VCk) = O((12A+k)^H) = O(S²h)
+
+3. Exemple de soltuions approchées
+3.1 PVC alias TSP
+(voageur decommer, traveling salesman problem)
+
+algo approché:
+
+G=(S,A) complet euclidien
+Calculer un arbre couvrant de poids minimal (ACPM)	O(SlogS + A)
+Effectuer un parcours canonique direct sur l'ACPM en coirt-circuitant les sommets déjà traversés O(A)
+
+<< O(S²)
+
+*Borne égale à 2
+c'est le rapport entre parcours trouvé et le parcours optimal
+
+C trouvé << 2 cout ACPM
+
+
+
+3.2 Couverture de sommets :
+
+rep tant que arrêtes dans G
+	(x,y) <- arretes quelqonque de G = {A,B}
+	E <- E U{x} U{y} E {A,B,D,F}
+	G <- G moins les arretes incidentes à X et à Y
+
+
+
+
+
+*borne 
+	supponsons solution en T tours
+	1 tours -> 2 nouveaux sommets de E => E << 2T
+										  E* >> T     E/2* < 2
+
+
+3.3 Somme d'entier
+donnéeE = {1,5,2,2,14,27,10,12,13}
+ondéfinit une somme notée +
+L = {5,7,9}+2 = {5,7,9,5+3,7+2,9+2}
+L' = {1,2,4,8}+1 = {1,2,3,,5,8,9}
+
+algo approché Pmax : poid maximal
+
+E = {x1,x2,x3,...,xn}
+L = nil
+rep de i = 1 à i = n
+	L <- L + xi
+	retirer de L toutes les valeurs >= P
+	Ecrêter(L,epsilon)
+frep
+
+Ecrêter(L,epsilon) retire de L les quantités q  qui ont un predecesseur p tel que q - p < epsilon
+
+grâce a l'écretage l'algo exponentiel précedent devient polynomial
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,188 @@
+4. Heuristiques
+
+4.1 Coloration de graphe
+
+coloration optimal => nombre minimun de couleurs
+-Tout sommet a une couleur
+-toute arrete est délimité par 2 sommets de couleurs distinctes
+
+*algo
+la "saturation" d'un sommet est le nombre de couleurs attribuéees à ses sommets voisins
+
+
+ALGO:
+attribuer une couleur au sommet de degré maximun
+rep jusqu'à coloration complete
+	X  <- sommet de saturation maximale;s'il y a plusieurs candidats, choisir un sommet de degré maximal
+	colorier X avec l plus petite couleur attribuable
+frep
+
++ Dsatur est polynomial
+-borne très mauvaise O(S)
++6couleurs max si G est planaire
++bon en moyenne
+
+rep jusqu'a G vide 
+	x <- sommet de + petit 
+	empiler X et ses arretes incidentes
+	G <- G 
+frep
+
+rep jusqu'a pile vide
+	X<- depiler()
+	coloriser X avec la + couleur
+	ajouter à G le sommet X et ses arrete incidentes
+frep
+
+
+4.3 Sac a dos KnapSack
+
+objets (cout, poids)
+poids max
+
+1) C1/p1 , c2/p2, ... , cn/pn classés par rapport décroissant
+
+2) algorithme glouton
+passer en revue les objets en commencant par les rapports les plus grandes
+prend l'objet si possible
+
+
+donnée (Ci,Pi) et Pmax 1 << i << n
+trier les (Ci,Pi)
+renuméroter les i par Ci/Pi décroissant
+P <- 0
+rep por i de 1 à n
+	si P + pi < Pmax
+		P<-P+Pi
+
+
+
+
+on peut si les CiPi sle permettent, faire mieux
+
+sac à dos 0-1 : on ne prend pas l'objet
+x+2y+z+3t =< 3
+
+
+
+l'optimisation se ramene à un probleme de cheminment dans 1 graphe
+soit le chemin le plus cout
+soirt le chemin le plus long G sans cycle
+C'est un algo de programmation dynamique
+G est construit a partir de données
+
+
+chemin le plus court sur G = (S,H) en O(S²) mais S = 	V 		x 			C
+													nbvariable		somme des coefficients
+
+
+variables (domaines de valeurs)
+contraintes linéaire
+fonction objectif
+exemple : 
+max 3x + y + z + 2t max !
+sc x + 2y + z + 3t =< 3  x,y,z,t dans {0;1}
+
+sous les contraintes :
+inégalités : =< , >= , =
+cas géneral : pb m , n linéaire
+m : nb contraintes
+n : nb variables
+
+
+dans N ou Z
+1) ca passe tres bien dans certain cas : probleme de flot
+
+1 contrainte par sommet x : - u - y + z + u = 0
+si S s'ecoule 3 unité de flots max 0 =< S =< z
+=> la solution est obtenue dans les entiers et est optimales
+
+2) contraintes qcq et solutions entieres
+
+la P.L
+
+linear program
+-> solutions mauvaise dans R
+
+La solution entiere optimale peut etre loin de la solution réelle
+
+6 Recul simulé :
+
+simulated annealing
+
+T<- Td
+k cnstante = 0.995
+rep jusqua T < epsilon 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,157 @@
+quand le coiffeur est seul (0 clients) il s'endort
+premier client reveillle le coiffeur
+si 1 client arrive et coiffeur occupé:
+	Si il y a une chaise libre:
+		il s'assoit (processus attend)
+	else:
+		il repart (processus s'arrete')
+
+but effectuer un RDV entre le coiffeur et les clients
+	-se_fait_coiffer()
+	-coiffer
+
+1) Sémaphore P et V
+
+semaphores :
+sem_chaises = 1
+sem_coiffage = 1
+sem_cpt_chaise = 1
+
+compteur :
+chaises_libres = NB_CHAISES
+
+coiffeur:
+
+while
+	P(sem_coiffage)
+	coiffer()
+
+
+client :
+
+P(sem_chaises)
+	Si chaises_libres:
+		P(sem_cpt_chaise)
+			chaises_libres --
+		V(sem_cpt_chaise)
+
+-> 		V(sem_chaises)
+
+		V(sem_coiffage)
+			se_fait_coiffer()
+		P(sem_coiffage)
+		P(sem_cpt_chaise)
+			chaise_libres ++
+		V(sem_cpt_chaise)
+	else:
+->		V(sem_chaises)
+
+
+
+
+CORRECTION:
+
+int nb_clients = 0
+sem S_mutex = 1
+sem S_coiffeur = 0
+sem S_nb_clients = 0
+
+CLient:
+
+	P(S_mutex)
+	Si nb_clients = NB_CHAISES
+		V(S_mutex)
+		exit(0) //Le client repart
+	FSI
+
+	nb_client ++
+	V(S_nb_clients)
+	V(S_mutex)
+	P(S_coiffeur)
+	se_fait_coiffer()
+	P(S_mutex)
+	nb_clients --
+	V(S_mutex)
+
+Coiffeur :
+	
+	TQ pas fermeture fermeture
+		P(S_nb_clients)
+		V(S_coiffeur)
+		coiffer()
+
+
+AVEC MONITEUR =>
+
+variables :
+
+const NB_CHAISES 5
+boolean coife_dispo = TRUE
+int nb_clients = 0
+cond Cclient //COndition d'attente des clients
+cond Ccoif //Condition d'attente
+
+client :
+
+	debut_client :
+	Si nb_clients = NB_CHAISES 
+		exit
+	nb_clients ++
+
+	Si nb_clients == 1
+		signal(Ccoif)
+
+	Si pas coiffeur_dispo ALORS
+		wait(Cclient)
+
+	fin_client:
+
+	nb_clients --
+
+
+
+coiffeur :
+
+	debut_coiffeur:
+	Si nb_clients == 0 
+		wait(Ccoif)
+
+	fin_coiffeur:
+
+	coif_dispo = TRUE
+	signal(Cclient)
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

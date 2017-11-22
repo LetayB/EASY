@@ -1,0 +1,20 @@
+int const * p :
+	pointeur sur un int constant
+
+int * const p :
+	pointeur constant sur un int non constant
+
+int const * const q:
+	pointeur constant sur un int constant
+
+int Pile::coincide( const Pile&) const
+
+const sur variable,fonction,reference
+
+clas compte{}
+class CompteCourant: public virtual Compte{}
+class CompteEpargne: public virtual Compte{}
+
+virtuelle pure : pas de premiere définition
+virtuelle : possible a redefinir
+non virtuelle : impossible a retenir
