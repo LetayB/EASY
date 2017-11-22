@@ -1,0 +1,128 @@
+Comment s’appelle le concept d'introduction d’un petit changement 
+au niveau du programme dont les effets se présentent dans certains tests ..?
+	=> introduction de mutation
+
+
+
+La sélection des cas de test pour les tests de régression ...?
+	=> Nécessite des connaissances sur les corrections de bugs et comment ils affectent le système,
+		Comprend la partie des défauts fréquents,
+		Comprend la partie qui a subi de nombreuses / récentes modifications du code
+
+L’activité de Tests qui est exécutée afin de mettre en évidence les défauts au niveau des interfaces et de 
+l'interaction entre les composants intégrés est : 
+	=> tests d'intégration
+
+Les défauts trouvés par les utilisateurs sont dus à ..?
+	=> Au mauvais logiciel et aux mauvais tests
+
+Les méthodologies adoptées pendant les tests de maintenance: 
+	=>
+
+Un type de tests fonctionnels, qui étudie les fonctions relatives 
+à la détection de menaces telles que les virus d’intrusions extérieures
+	=>
+
+Les tests où l'objectif est de soumettre la cible à des degrés divers de charges de travail
+pour mesurer et évaluer les comportements de performance et sa capacité à 
+continuer à fonctionner correctement pour les différentes charges de travail.
+	=>
+
+
+Quelles sont les principales fonctionnalités sur lesquelles 
+il faut se concentrer lorsque vous faites des tests pour des sites web ..
+	=>
+
+
+qcm page 142 :
+
+D
+D
+A
+?
+?
+A
+
+
+
+p 144 :
+
+9. b
+10.
+11. 
+12. d
+
+
+
+
+
+verification 	: confirmation du respects des exigences spécifiés (spécifications)
+validation		: confirmation du respect des exigences pour un usage (besoins)
+
+CMMI 	: capability maturity model integration
+TMMI	: test maturity model integration
+
+defaut/bug 	: imperfection
+erreur		: action humaine produsiant un resultat imparfait
+défaillance	: incapacité d'un systeme a effectuer le resultat attendu
+qualité		: degre composant exigences specifiés
+
+test : 
+	trouver des defauts
+	acquerir confiance qualité
+	prevenir des defauts
+
+modele en V :
+
+ESCC - D - UIFR
+
+expression -> recette
+spécification -> test fonctionnels
+conception general -> test intégration
+conception spé -> test unitaire
+
+
+7 principes : 
+Principe 1  : Les tests peuvent prouver la présence de défauts  mais ne peuvent en aucun cas prouver leur absence
+
+Principe 2 : Tester de façon exhaustive en utilisant par exemple une table de  décision ne doit pas être envisagé sauf pour des systèmes très simples ce qui n’est plus le cas aujourd’hui. Il faut privilégier l’analyse des risques et des priorités pour calibrer l’effort de test
+
+Principe 3 : Tester au plus tôt permet de réduire considérablement le coût de correction d’un défaut. 
+
+Principe 4 : Pour déterminer les efforts de tests en fonction des modules, on peut prendre en compte le niveau de probabilité de survenance de défaillances (par exemple des développements donnés à une personne junior)
+
+Principe 5 : Paradoxe du pesticide. Des mêmes tests exécutés de nombreuses fois ne décèlent plus d’anomalie. Il est important de réviser les tests pour couvrir d’autres chemins dans le système
+
+
+Principe 6 : Les tests dépendent du contexte et du système testé.
+
+Principe 7: Qualifier un système dont les exigences de test ont été mal définies avec les utilisateurs initialement n’a aucune plus value.
+
+
+
+
+
+
+
+
+Test de régression : tests d‘un programme préalablement testé, après une modification, pour s‘assurer que des défauts n‘ont pas été introduits ou 
+découverts dans des parties non modifiées du logiciel, comme suites des modifications effectuées. Ces tests sont effectués quand le logiciel ou son environnement est modifié. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

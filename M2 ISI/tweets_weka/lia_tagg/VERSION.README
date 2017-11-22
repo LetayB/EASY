@@ -1,0 +1,14 @@
+-----------
+VERSION 1.1
+-----------
+
+
+ - VERSION 1.1  -  date: July 2003
+   -> cleaning the scripts and adding the possibility of
+      switching between langages with an environment variable
+   -> add: lia_tagg2name = name extractor from a POS file (January 2004)
+   -> fixed bug on DecoupeMots (tokenize): buffer[SIZE_BUFFER+1] (January 2005)
+   -> add text cleaning command developped for processing ESTER data 
+   -> add the process of digit expressions => CHIF (November 2006)
+      (correct bug for English .. Dec06)
+
