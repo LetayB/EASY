@@ -1,0 +1,44 @@
+
+bateau.c,745
+bateau_ecrire(26,446
+bateau_afficher(52,915
+bateau_corps_lire(82,1584
+bateau_corps_ecrire(88,1679
+bateau_marque_lire(105,1949
+bateau_marque_ecrire(111,2033
+bateau_pid_lire(124,2208
+bateau_pid_ecrire(130,2286
+bateau_actif_lire(142,2433
+bateau_actif_ecrire(149,2511
+bateau_liste_afficher(167,2860
+bateau_liste_dernier(190,3328
+bateau_liste_actifs(225,4016
+bateau_liste_pid2ind(249,4460
+bateau_liste_ind2pid(278,4934
+bateau_liste_coord_chercher(300,5509
+bateau_fichier_ajouter(350,6546
+bateau_fichier_amiral_ecrire(470,9672
+bateau_fichier_amiral_lire(556,11838
+bateau_fichier_afficher(649,14011
+bateau_fichier_initialiser(762,16662
+bateau_liste_charger(828,18085
+bateau_liste_creer(924,20457
+bateau_liste_detruire(935,20616
+
+init_fich_bateaux.c,13
+main(13,190
+
+kill_bateaux.c,13
+main(13,171
+
+test_tda_bateau.c,13
+main(14,191
+
+bateau.h,225
+#define _BATEAU_H_2,19
+#define BATEAU_NB_MAX 15,264
+#define BATEAU_TAILLE 16,291
+#define BATEAU_SEUIL_BOUCLIER 17,316
+#define BATEAU_MAX_ENERGIE 18,349
+typedef struct bateau_sbateau_s26,547
+} bateau_t bateau_t32,679

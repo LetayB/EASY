@@ -1,0 +1,13 @@
+
+commun.h,330
+#define _COMMUN_H_2,19
+#define CORRECT 4,39
+#define ERREUR 5,57
+#define TEMPS_LONG 7,77
+#define TEMPS_MOYEN 8,99
+#define TEMPS_COURT 9,121
+#define MESS_LONGUEUR 11,145
+typedef enum { FAUX 15,207
+typedef enum { FAUX , VRAI 15,207
+typedef enum { FAUX , VRAI } booleen_t booleen_t15,207
+typedef char case_t case_t19,320

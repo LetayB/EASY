@@ -1,0 +1,46 @@
+"Package" pour realiser le TP de la bataille navale
+
+ Bateau : 
+	bateau.{c,h} : TDA bateau 
+	init_fich_bateau.c : programme de creation d'un fichier-liste de bateaux (pour signaux) 
+	kill_bateau.c : programme tueur de tous les processus bateaux qui sont repertories dans un fichier-liste de bateaux (pour signaux)
+	test_tda_bateau.c : programme de test des primitives du TDA bateau
+	Makefile : pour creer les executables des programmes de ce repertoire avec "make" 
+	TAGS : permet sous emacs de retrouver facilement les signatures des fonctions avec les commandes "find-tag"
+
+Commun :
+	commun.h : definition des constantes utilisees par tousles programmes de ce TP
+	TAGS : pour "find-tag" sur les constantes
+
+Coord : 
+	coord.{c,h} : TDA Coord(onnees) 
+	test_tda_coord.c : programme de test des primitives du TDA coord
+	Makefile : pour creer les executables des programmes de ce repertoire avec "make" 
+	TAGS : permet sous emacs de retrouver facilement les signatures des fonctions avec les commandes "find-tag"
+
+Fichiers : 
+	repertoire ou l'on met tous les fichiers de travail , par exemple
+	le fichier mer (mer.bin)
+	le fichier-liste de bateaux (bateaux.bin) (pour les isgnaux)
+
+Mer : 
+	mer.{c,h} : TDA mer 
+	init_fich_mer.c : programme de creation d'un fichier-tableau de la mer
+	test_tda_mer.c : programme de test des primitives du TDA mer
+	Makefile : pour creer les executables des programmes de ce repertoire avec "make" 
+	TAGS : permet sous emacs de retrouver facilement les signatures des fonctions avec les commandes "find-tag"
+
+Verrous : 
+	repertoire conseille pour faire la 1ere partie du TP utilisant les verrous
+	Makefile : pour creer 2 executables nommes arbitrairement "navire" et "vision" dont les roles sont expliques dans le sujet du TP
+
+Signaux :
+	repertoire conseille pour faire la 2ieme partie du TP utilisant les signaux 
+	Makefile : pour creer 2 executables nommes arbitrairement "navire" et "amiral" dont les roles sont expliques dans le sujet du TP,
+	on peut reprendre le programme "vision" de la 1ere partie du TP dans le repertoire "Verrous"
+            
+Makefile : 
+	Makefile general pour creer depuis la racine de votre TP tous les executables
+
+README : 
+	le fichier que vous etes en train de lire 

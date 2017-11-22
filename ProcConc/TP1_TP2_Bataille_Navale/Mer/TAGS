@@ -1,0 +1,37 @@
+
+init_fich_mer.c,13
+main(14,188
+
+mer.c,611
+mer_case_afficher(16,187
+mer_afficher(28,340
+mer_initialiser(103,2094
+mer_nb_bateaux_lire(196,3954
+mer_nb_bateaux_ecrire(237,4783
+mer_voisins_rechercher(277,5646
+mer_voisins_afficher(438,10615
+mer_bateau_initialiser(466,11444
+mer_bateau_vertical_deplacer(621,14926
+mer_bateau_horizontal_deplacer(848,20780
+mer_bateau_deplacer(1075,26704
+mer_dim_lire(1185,29202
+mer_lc2pos(1238,30224
+mer_pos2lc(1270,30875
+mer_case_lire(1311,31662
+mer_case_ecrire(1346,32454
+mer_bateau_cible_acquerir(1388,33489
+mer_bateau_cible_detruire(1484,36052
+mer_bateau_verifier(1520,36823
+mer_bateau_couler(1554,37392
+
+test_tda_mer.c,13
+main(14,188
+
+mer.h,225
+#define _MER_H_2,16
+#define MER_TAILLE_CASE 18,274
+#define MER_TAILLE_ENTETE 19,311
+#define MER_CASE_LIBRE 20,353
+#define MER_CASE_BOULET 21,381
+#define MER_DEBUT_NB_BATEAUX 22,410
+#define MER_TAILLE_NB_BATEAUX 23,455
